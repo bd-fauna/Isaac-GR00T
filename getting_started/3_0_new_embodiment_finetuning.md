@@ -34,17 +34,17 @@ huggingface-cli download \
 
 ### Second, copy over the modality file
 
-The `modality.json` file provides additional information about the state and action modalities to make it "GR00T-compatible". Copy over the `examples/so100_dualcam__modality.json` to the dataset `<DATASET_PATH>/meta/modality.json`.
+The `modality.json` file provides additional information about the state and action modalities to make it "GR00T-compatible". Copy over the `examples/SO-100/so100_dualcam__modality.json` to the dataset `<DATASET_PATH>/meta/modality.json`.
 
 
 For Dual Camera setup like [so101-table-cleanup](https://huggingface.co/datasets/youliangtan/so101-table-cleanup) dataset, do:
 ```bash
-cp examples/so100_dualcam__modality.json ./demo_data/so101-table-cleanup/meta/modality.json
+cp examples/SO-100/so100_dualcam__modality.json ./demo_data/so101-table-cleanup/meta/modality.json
 ```
 
 For Single Camera setup like [so100_strawberry_grape](https://huggingface.co/spaces/lerobot/visualize_dataset?dataset=youliangtan%2Fso100_strawberry_grape&episode=0) dataset, do:
 ```bash
-cp examples/so100__modality.json ./demo_data/so100_strawberry_grape/meta/modality.json
+cp examples/SO-100/so100__modality.json ./demo_data/so100_strawberry_grape/meta/modality.json
 ```
 
 Then we can load the dataset using the `LeRobotSingleDataset` class.

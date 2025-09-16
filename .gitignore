@@ -120,5 +120,9 @@ playground/
 
 # Data
 demo_data/gr00t-gr1-apple-to-shelf/
+demo_data/so101-table-cleanup/
 tmp/
 output/
+
+# Checkpoints
+checkpoints/
