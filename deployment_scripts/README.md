@@ -48,6 +48,11 @@ bash deployment_scripts/setup_env.sh
 
 To build a container for Isaac-GR00T:
 
+Build container for desktop
+```sh
+docker build -t isaac-gr00t-n1.5:x86 -f Dockerfile .
+```
+
 Build container for Jetson Thor:
 ```sh
 docker build -t isaac-gr00t-n1.5:l4t-jp7.0 -f thor.Dockerfile .
