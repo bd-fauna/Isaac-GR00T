@@ -69,7 +69,7 @@ To run the container:
 
 Run container for Desktop:
 ```sh
-docker run --rm -it --runtime nvidia -v "$PWD":/workspace -v "$HOME"/code/GROOT-cache:/root/.cache -w /workspace isaac-gr00t-n1.5:x86
+docker run --rm -it --runtime nvidia -v "$PWD":/workspace -v "$HOME"/code/GR00T-cache:/root/.cache -w /workspace isaac-gr00t-n1.5:x86
 ```
 
 Run container for Thor:

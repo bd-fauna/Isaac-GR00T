@@ -16,15 +16,20 @@ RUN apt update && \
 
 RUN pip install --upgrade pip setuptools
 RUN pip install gpustat wandb==0.19.0
+
 # Create and set working directory
 WORKDIR /workspace
+
 # Copy pyproject.toml for dependencies
 COPY pyproject.toml .
+
 # Install dependencies from pyproject.toml
 RUN pip install -e .[base]
+
 # There's a conflict in the native python, so we have to resolve it by
 RUN pip uninstall -y transformer-engine
 RUN pip install flash_attn==2.7.1.post4 -U --force-reinstall
+
 # Clean any existing OpenCV installations
 RUN pip uninstall -y opencv-python opencv-python-headless || true
 RUN rm -rf /usr/local/lib/python3.10/dist-packages/cv2 || true
@@ -34,8 +39,10 @@ COPY getting_started /workspace/getting_started
 COPY scripts /workspace/scripts
 COPY demo_data /workspace/demo_data
 RUN pip install -e . --no-deps
+
 # need to install accelerate explicitly to avoid version conflicts
 RUN pip install accelerate>=0.26.0
 COPY gr00t /workspace/gr00t
 COPY Makefile /workspace/Makefile
 RUN pip3 install -e .
+RUN pip install tensorrt==10.13.3.9
