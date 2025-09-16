@@ -71,7 +71,7 @@ class ArgsConfig:
     start_traj: int = 0
     """Start trajectory to evaluate."""
 
-    action_horizon: int = None
+    action_horizon: int | None = None
     """Action horizon to evaluate. If None, will use the data config's action horizon."""
 
     video_backend: Literal["decord", "torchvision_av"] = "decord"
@@ -83,13 +83,13 @@ class ArgsConfig:
     embodiment_tag: Literal[tuple(EMBODIMENT_TAG_MAPPING.keys())] = "gr1"
     """Embodiment tag to use."""
 
-    model_path: str = None
+    model_path: str | None = None
     """Path to the model checkpoint."""
 
     denoising_steps: int = 4
     """Number of denoising steps to use."""
 
-    save_plot_path: str = None
+    save_plot_path: str | None = None
     """Path to save the plot."""
 
     plot_state: bool = False

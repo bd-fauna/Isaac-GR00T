@@ -56,13 +56,14 @@ Finetuning can be done by using our finetuning `scripts/gr00t_finetune.py`, as a
 
 ```bash
 python scripts/gr00t_finetune.py \
-   --dataset-path /datasets/so101-table-cleanup/ \
+   --dataset-path ./demo_data/so101-table-cleanup/ \
    --num-gpus 1 \
-   --batch-size 64 \
-   --output-dir ~/so101-checkpoints  \
+   --batch-size 1 \
+   --output-dir ./checkpoints/so101-checkpoints  \
    --max-steps 10000 \
    --data-config so100_dualcam \
-   --video-backend torchvision_av
+   --video-backend torchvision_av \
+   --no-tune_diffusion_model
 ```
 
 > adjust the batch size to your GPU memory.
@@ -74,11 +75,12 @@ Once the training is done, you can run the following command to visualize the fi
 ```bash
 python scripts/eval_policy.py --plot \
    --embodiment_tag new_embodiment \
-   --model_path <YOUR_CHECKPOINT_PATH> \
+   --model_path ./checkpoints/so101-checkpoints/checkpoint-9000 \
    --data_config so100_dualcam \
-  --dataset_path /datasets/so101-table-cleanup/ \
+  --dataset_path ./demo_data/so101-table-cleanup/ \
    --video_backend torchvision_av \
-   --modality_keys single_arm gripper
+   --modality_keys single_arm gripper \
+   --save_plot_path ./checkpoints/so101-checkpoints/checkpoint-9000/inference.png
 ```
 
 This is a plot after training the policy for 7k steps.
