@@ -48,7 +48,7 @@ bash deployment_scripts/setup_env.sh
 
 To build a container for Isaac-GR00T:
 
-Build container for desktop
+Build container for Desktop
 ```sh
 docker build -t isaac-gr00t-n1.5:x86 -f Dockerfile .
 ```
@@ -66,6 +66,11 @@ docker build -t isaac-gr00t-n1.5:l4t-jp6.2 -f orin.Dockerfile .
 #### Run Container
 
 To run the container:
+
+Run container for Desktop:
+```sh
+docker run --rm -it --runtime nvidia -v "$PWD":/workspace -v "$HOME"/code/GROOT-cache:/root/.cache -w /workspace isaac-gr00t-n1.5:x86
+```
 
 Run container for Thor:
 ```sh
